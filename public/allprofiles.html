@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Hit - Harmonizing Creativity for Africa's Music Scene</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+      body {
+          font-family: 'Montserrat', sans-serif; /* Brand Font: Montserrat Regular */
+          background-color: #F5F5F5; /* Neutral: Soft White */
+          color: #333333; /* Neutral: Charcoal */
+      }
+      h1, h2, h3, h4, h5, h6, .font-headline {
+          font-family: 'Montserrat', sans-serif; /* Brand Font: Montserrat */
+          font-weight: 700; /* Bold for headlines */
+      }
+      /* Brand Colors */
+      .bg-primary-purple { background-color: #7B61FF; }
+      .text-primary-purple { color: #7B61FF; }
+      .border-primary-purple { border-color: #7B61FF; }
+      .hover\:bg-primary-purple-dark:hover { background-color: #6a52e0; } /* Slightly darker purple */
+      .hover\:text-primary-purple:hover { color: #7B61FF; }
+
+      .bg-accent-green { background-color: #39FF14; }
+      .text-accent-green { color: #39FF14; }
+      .border-accent-green { border-color: #39FF14; }
+      .hover\:text-accent-green-dark:hover { color: #2ee010; } /* Slightly darker green */
+
+      .bg-secondary-navy { background-color: #1E1E3A; }
+      .text-secondary-navy { color: #1E1E3A; }
+
+      .bg-neutral-white { background-color: #F5F5F5; }
+      .text-neutral-white { color: #F5F5F5; }
+
+      .bg-neutral-charcoal { background-color: #333333; }
+      .text-neutral-charcoal { color: #333333; }
+
+      /* Smooth scrolling */
+      html {
+          scroll-behavior: smooth;
+      }
+      /* Simple fade-in animation */
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+      .fade-in {
+          animation: fadeIn 0.6s ease-out forwards;
+      }
+      /* Lucide Icons Setup */
+       @font-face {
+          font-family: 'LucideIcons';
+          /* Use a reliable CDN link */
+          src: url(https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.ttf) format('truetype');
+        }
+        .lucide {
+          font-family: 'LucideIcons';
+          font-size: 1.3em; /* Slightly larger icons */
+          line-height: 1;
+          display: inline-block;
+          font-style: normal; /* Ensure icons render correctly */
+          font-weight: normal; /* Ensure icons render correctly */
+          vertical-align: middle;
+        }
+        /* Style for icons in "How it Works" */
+        .icon-highlight .lucide {
+            color: #39FF14; /* Accent: Neon Green */
+        }
+         /* Style for icons in "Collaboration Possibilities" */
+        .collab-icon .lucide {
+             color: #7B61FF; /* Primary: Electric Purple */
+        }
+        /* Underline highlight */
+        .highlight-underline {
+          background-image: linear-gradient(120deg, #7710f6 0%, #4d096a 100%); /* Neon green gradient */
+          background-repeat: no-repeat;
+          background-size: 100% 0.3em;
+          background-position: 0 88%;
+          transition: background-size 0.25s ease-in;
+        }
+        .highlight-underline:hover {
+          background-size: 100% 88%; /* Expand highlight on hover */
+        }
+
+  </style>
+</head>
+<body class="antialiased">
+  
+  <header class="bg-neutral-white shadow-md sticky top-0 z-50">
+      <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          <a href="homepage.html" class="text-2xl font-headline text-secondary-navy hover:text-primary-purple transition duration-150">
+              Find Hit <span class="text-accent-green text-3xl leading-none">.</span>
+          </a>
+
+          <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+              <a href="allprofiles.html" class="text-neutral-charcoal hover:text-primary-purple font-medium transition duration-150 ease-in-out">Browse Talent</a>
+              <a href="Howitworks.html" class="text-neutral-charcoal hover:text-primary-purple font-medium transition duration-150 ease-in-out">How It Works</a>
+              <a href="#pricing" class="text-neutral-charcoal hover:text-primary-purple font-medium transition duration-150 ease-in-out">Pricing</a>
+              <a href="postajob.html" class="text-neutral-charcoal hover:text-primary-purple font-medium transition duration-150 ease-in-out">Post a Job</a>
+              <a href="signup.html" class="bg-primary-purple text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary-purple-dark transition duration-150 ease-in-out shadow">Sign Up</a>
+              <a href="login.html" class="text-neutral-charcoal hover:text-primary-purple transition duration-150 ease-in-out text-sm font-medium">Log In</a>
+          </div>
+
+          <div class="md:hidden">
+              <button id="mobile-menu-button" class="text-secondary-navy hover:text-primary-purple focus:outline-none">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+              </button>
+          </div>
+      </nav>
+
+      <div id="mobile-menu" class="md:hidden hidden bg-neutral-white border-t border-gray-200 shadow-lg">
+          <a href="#browse" class="block px-5 py-3 text-neutral-charcoal hover:bg-gray-100 hover:text-primary-purple font-medium">Browse Talent</a>
+          <a href="#how-it-works" class="block px-5 py-3 text-neutral-charcoal hover:bg-gray-100 hover:text-primary-purple font-medium">How It Works</a>
+          <a href="#pricing" class="block px-5 py-3 text-neutral-charcoal hover:bg-gray-100 hover:text-primary-purple font-medium">Pricing</a>
+          <a href="postajob.html" class="block px-5 py-3 text-neutral-charcoal hover:bg-gray-100 hover:text-primary-purple font-medium">Post a Job</a>
+          <a href="signin.html" class="block px-5 py-3 text-neutral-charcoal hover:bg-gray-100 hover:text-primary-purple font-medium">Log In</a>
+          <a href="signup.html" class="block px-5 py-4 bg-primary-purple text-white text-center font-bold hover:bg-primary-purple-dark transition duration-150 ease-in-out">Sign Up</a>
+      </div>
+  </header>
+
+<body class="bg-gray-100 min-h-screen p-6">
+  <h1 class="text-3xl font-bold text-center mb-6">Available Profiles</h1>
+  <div id="profilesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+  <script>
+    async function loadProfiles() {
+      try {
+        const res = await fetch('/profiles');
+        const profiles = await res.json();
+
+        const container = document.getElementById('profilesContainer');
+        container.innerHTML = '';
+
+        if (profiles.length === 0) {
+          container.innerHTML = '<p class="text-center text-gray-600">No profiles found.</p>';
+          return;
+        }
+
+        profiles.forEach(profile => {
+          const card = document.createElement('div');
+          card.className = 'bg-white p-4 rounded-lg shadow-md';
+          card.innerHTML = `
+            <h2 class="text-xl font-bold text-purple-700">${profile.name}</h2>
+            <p><strong>Location:</strong> ${profile.location || 'N/A'}</p>
+            <p><strong>Bio:</strong> ${profile.bio || 'N/A'}</p>
+            <p><strong>Specialties:</strong> ${profile.specialties || 'N/A'}</p>
+            <p><strong>Key Strengths:</strong> ${profile.key_strengths || 'N/A'}</p>
+            <p><strong>Services:</strong> ${profile.services || 'N/A'}</p>
+            <p><strong>Projects:</strong> ${profile.previous_projects || 'N/A'}</p>
+          `;
+          container.appendChild(card);
+        });
+
+      } catch (err) {
+        console.error(err);
+        alert('Failed to load profiles.');
+      }
+    }
+
+    loadProfiles();
+  </script>
+</body>
+</html>

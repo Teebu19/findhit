@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <form id="profileForm" class="bg-white p-6 rounded-lg shadow-md w-full max-w-xl space-y-4">
+    <h2 class="text-2xl font-bold mb-2">Complete Your Profile</h2>
+
+    <textarea style="border-color: blueviolet;" id="bio" required placeholder="Write your bio..." class="w-full p-2 border border-gray-300 rounded" rows="4"></textarea>
+
+    <select id="location" required class="w-full p-2 border border-gray-300 rounded" style="border-color:blueviolet;">
+        <option value="">Select your location</option>
+        <option value="uyo">Abia,Umuahia</option>
+        <option value="Akwa">Adamawa,Yola</option>
+        <option value="lagos">Akwa Ibom,Uyo</option>
+        <option value="Anambra">Anambra,Awka</option>
+        <option value="Bauchi">Bauchi,Bauchi</option>
+        <option value="Bayelsa">Bayelsa,Yenagoa</option>
+        <option value="Benue">Benue,Makurdi</option>
+        <option value="Borno">Borno,Maiduguri</option>
+        <option value="Cross">Cross River,Calabar</option>
+        <option value="Delta">Delta,Asaba</option>
+        <option value="Ebonyi">Ebonyi,Abakaliki</option>
+        <option value="Edo">Edo,Benin City</option>
+        <option value="Ekiti">Ekiti,Ado-Ekiti</option>
+        <option value="Enugu">Enugu,Enugu</option>
+        <option value="Gombe">Gombe,Gombe</option>
+        <option value="Imo">Imo,Owerri</option>
+        <option value="Jigawa">Jigawa,Dutse</option>
+        <option value="Kaduna">Kaduna,Kaduna</option>
+        <option value="Kano">Kano,Kano</option>
+        <option value="Katsina">Katsina,Katsina</option>
+        <option value="Kebbi">Kebbi,Birnin Kebbi</option>
+        <option value="Kogi">Kogi,Lokoja</option>
+        <option value="Kwara">Kwara,Ilorin</option>
+        <option value="Lagos">Lagos,Ikeja</option>
+        <option value="Nasarawa">Nasarawa,Lafia</option>
+        <option value="Niger">Niger,Minna</option>
+        <option value="Ogun">Ogun,Abeokuta</option>
+        <option value="Ondo">Ondo,Akure</option>
+        <option value="Osun">Osun,Osogbo</option>
+        <option value="Oyo">Oyo,Ibadan</option>
+        <option value="Plateau">Plateau,Jos</option>
+        <option value="Rivers">Rivers,Port Harcourt</option>
+        <option value="Sokoto">Sokoto,Sokoto</option>
+        <option value="Taraba">Taraba,Jalingo</option>
+        <option value="Yobe">Yobe,Damaturu</option>
+        <option value="Zamfara">Zamfara,Gusau</option>
+        <option value="Accra">Ghana,Accra</option>
+        <option value="Kumasi">Ghana,Kumasi</option>
+        <option value="Sekondi-Takoradi">Ghana,Sekondi-Takoradi</option>
+        <option value="Tamale">Ghana,Tamale</option>
+        <option value="Cape Coast">Ghana,Cape Coast</option>
+        <option value="Sunyani">Ghana,Sunyani</option>
+        <option value="Tema">Ghana,Tema</option>
+        <option value="Obuasi">Ghana,Obuasi</option>
+        <option value="Koforidua">Ghana,Koforidua</option>
+      </select>
+      
+
+    <input id="specialties" required type="text" placeholder="Specialties" class="w-full p-2 border border-gray-300 rounded" style="border-color: blueviolet;"/>
+
+    <input id="key_strengths" required type="text" placeholder="Key Strengths" class="w-full p-2 border border-gray-300 rounded" style="border-color: blueviolet;" />
+
+    <textarea style="border-color: blueviolet;" id="services" required placeholder="Services Rendered" class="w-full p-2 border border-gray-300 rounded" rows="3"></textarea>
+
+    <textarea style="border-color: blueviolet;" id="projects" required placeholder="Previous Projects" class="w-full p-2 border border-gray-300 rounded" rows="3"></textarea>
+
+    <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Save</button>
+    <button type="button" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700" onclick="window.location.href='signup.html'">Back</button>
+  </form>
+
+  <script>
+    document.getElementById('profileForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const userId = localStorage.getItem('userId');
+  
+      const data = {
+        userId,
+        bio: document.getElementById('bio').value,
+        location: document.getElementById('location').value,
+        specialties: document.getElementById('specialties').value,
+        key_strengths: document.getElementById('key_strengths').value,
+        services: document.getElementById('services').value,
+        previous_projects: document.getElementById('projects').value,
+      };
+  
+      try {
+        const res = await fetch('/profile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+  
+        const result = await res.json();
+        alert(result.message);
+        window.location.href = 'viewprofile.html'; // or wherever
+      } catch (err) {
+        console.error(err);
+        alert('Something went wrong.');
+      }
+    });
+  </script>  
+</body>
+</html>

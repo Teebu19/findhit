@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+    <h2 class="text-3xl font-bold mb-4 text-purple-700">Your Profile</h2>
+    
+    <div id="profileDisplay" class="space-y-2 text-lg text-gray-700">
+      <p><strong>Name:</strong> <span id="name">—</span></p>
+      <p><strong>Email:</strong> <span id="email">—</span></p>
+      <p><strong>Role:</strong> <span id="role">—</span></p>
+      <p><strong>Bio:</strong> <span id="bio">—</span></p>
+      <p><strong>Location:</strong> <span id="location">—</span></p>
+      <p><strong>Specialties:</strong> <span id="specialties">—</span></p>
+      <p><strong>Key Strengths:</strong> <span id="key_strengths">—</span></p>
+      <p><strong>Services:</strong> <span id="services">—</span></p>
+      <p><strong>Previous Projects:</strong> <span id="projects">—</span></p>
+    </div>
+
+    <div class="mt-6">
+      <button onclick="window.location.href='profile.html'" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Edit Profile</button>
+      <button onclick="window.location.href='homepage.html'" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">Back</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const res = await fetch('http://localhost:3000/me', {
+      credentials: 'include'
+    });
+
+    const data = await res.json();
+
+    if (data.error) {
+      alert(data.error);
+      return;
+    }
+
+    document.getElementById('name').textContent = data.name || '—';
+    document.getElementById('email').textContent = data.email || '—';
+    document.getElementById('role').textContent = data.role || '—';
+    document.getElementById('bio').textContent = data.bio || '—';
+    document.getElementById('location').textContent = data.location || '—';
+    document.getElementById('specialties').textContent = data.specialties || '—';
+    document.getElementById('key_strengths').textContent = data.key_strengths || '—';
+    document.getElementById('services').textContent = data.services || '—';
+    document.getElementById('projects').textContent = data.previous_projects || '—';
+  } catch (err) {
+    console.error(err);
+    alert('Failed to load profile');
+  }
+});
+  </script>
+</body>
+</html>
