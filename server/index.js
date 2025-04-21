@@ -27,6 +27,9 @@ app.use(cors({
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
+app.get('/', (req, res) => {
+  res.send('FindHit is live!');
+});
 
 app.use(session({
   secret: 'your-super-secret',
